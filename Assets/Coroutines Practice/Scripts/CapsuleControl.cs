@@ -52,18 +52,17 @@ public class CapsuleControl : MonoBehaviour
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
 
 
-
-
-            //Shooting
-
-            if (Input.GetMouseButtonDown(0) && canShoot)
-            {
-                canShoot = false;
-                Instantiate(projectile, spawnPoint.transform.position, spawnPoint.transform.rotation);
-                StartCoroutine(ShootDelay());
-            }
-
         }
+
+        //Shooting
+
+        if (Input.GetKeyDown(KeyCode.Q) && canShoot)
+        {
+            canShoot = false;
+            Instantiate(projectile, spawnPoint.transform.position, spawnPoint.transform.rotation);
+            StartCoroutine(ShootDelay());
+        }
+
 
         //make a coroutine to delay shooting
 
